@@ -6,7 +6,6 @@
 #include "Blueprint/AIBlueprintHelperLibrary.h"
 #include "Runtime/Engine/Classes/Components/DecalComponent.h"
 #include "HeadMountedDisplayFunctionLibrary.h"
-#include "Engine/World.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "TDProject/TDProject.h"
 #include "TDProject/Public/TDProjectCharacter.h"
