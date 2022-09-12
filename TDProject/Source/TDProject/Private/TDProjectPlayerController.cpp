@@ -63,6 +63,10 @@ void ATDProjectPlayerController::MoveToMouseCursor()
 
 void ATDProjectPlayerController::RotatePawnToMouseCursor()
 {
+	if (!IsValid(MyPawn))
+	{
+		return;
+	}
 	if (IsValid(MyPawn->GetCursorToWorld()))
 	{
 		FRotator PawnRotation = MyPawn->GetActorRotation();
@@ -103,11 +107,6 @@ void ATDProjectPlayerController::OnPossess(APawn* InPawn)
 	Super::OnPossess(InPawn);
 
 	MyPawn = Cast<ATDProjectCharacter>(GetPawn());
-	if (IsValid(MyPawn))
-	{
-		return;
-	}
-	UE_LOG(LogTDProject, Error, TEXT("Pawn Possess!"));
 }
 
 FVector ATDProjectPlayerController::GetMouseWorldLocation()

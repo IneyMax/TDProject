@@ -1,10 +1,8 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 #pragma once
 
 #include "CoreMinimal.h"
 #include "TDItem.h"
-#include "Item/AmplifierObjects/TDAmplifier.h"
+#include "Item/AmplifierObjects/TDAmplifierBase.h"
 #include "TDItemAmplifier.generated.h"
 
 /**
@@ -17,5 +15,5 @@ class TDPROJECT_API UTDItemAmplifier : public UTDItem
 
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Amplifier)
-	TSubclassOf<UTDAmplifier> AmplifierClass;
+	TSubclassOf<UTDAmplifierBase> AmplifierClass;
 };

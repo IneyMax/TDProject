@@ -36,3 +36,7 @@ void ATDWeaponBase::SetAmmo (UTDItem *Item)
 	}
 }
 
+void ATDWeaponBase::SetWeaponParams(FTDWeaponStats InWeaponStats)
+{
+	WeaponStats = InWeaponStats;
+}

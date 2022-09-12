@@ -1,5 +1,3 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
-
 #pragma once
 
 #include "TDProjectTypes.generated.h"
@@ -15,9 +13,10 @@ struct TDPROJECT_API FTDItemSlot
 		: SlotNumber(-1)
 	{}
 
-	FTDItemSlot(const FPrimaryAssetType& InItemType, int32 InSlotNumber)
+	FTDItemSlot(const FPrimaryAssetType& InItemType, int32 InSlotNumber, FName InUniqueTag)
 		: ItemType(InItemType)
 		, SlotNumber(InSlotNumber)
+		, UniqueTag(InUniqueTag)
 	{}
 	
 	/** The type of items that can go in this slot */
