@@ -298,124 +298,12 @@ void UTDInventoryComponent::FillEmptySlots()
 
 bool UTDInventoryComponent::SaveInventory()
 {
-
-
-	/*
-	UWorld* World = GetWorld();
-	URPGGameInstanceBase* GameInstance = World ? World->GetGameInstance<URPGGameInstanceBase>() : nullptr;
-
-	if (!GameInstance)
-	{
-		return false;
-	}
-
-	URPGSaveGame* CurrentSaveGame = GameInstance->GetCurrentSaveGame();
-	if (CurrentSaveGame)
-	{
-		// Reset cached data in save game before writing to it
-		CurrentSaveGame->InventoryData.Reset();
-		CurrentSaveGame->SlottedItems.Reset();
-
-		for (const TPair<UTDItem*, FTDItemData>& ItemPair : InventoryData)
-		{
-			FPrimaryAssetId AssetId;
-
-			if (ItemPair.Key)
-			{
-				AssetId = ItemPair.Key->GetPrimaryAssetId();
-				CurrentSaveGame->InventoryData.Add(AssetId, ItemPair.Value);
-			}
-		}
-
-		for (const TPair<FTDItemSlot, UTDItem*>& SlotPair : SlottedItems)
-		{
-			FPrimaryAssetId AssetId;
-
-			if (SlotPair.Value)
-			{
-				AssetId = SlotPair.Value->GetPrimaryAssetId();
-			}
-			CurrentSaveGame->SlottedItems.Add(SlotPair.Key, AssetId);
-		}
-
-		// Now that cache is updated, write to disk
-		GameInstance->WriteSaveGame();
-		return true;
-	}*/
 	return false;
 }
 
 
 bool UTDInventoryComponent::LoadInventory()
 {
-	/*
-	
-	// Fill in slots from game instance
-	UWorld* World = GetWorld();
-	URPGGameInstanceBase* GameInstance = World ? World->GetGameInstance<URPGGameInstanceBase>() : nullptr;
-
-	if (!GameInstance)
-	{
-		return false;
-	}
-
-	// Bind to loaded callback if not already bound
-	if (!GameInstance->OnSaveGameLoadedNative.IsBoundToObject(this))
-	{
-		GameInstance->OnSaveGameLoadedNative.AddUObject(this, &ARPGPlayerControllerBase::HandleSaveGameLoaded);
-	}
-
-	for (const TPair<FPrimaryAssetType, int32>& Pair : GameInstance->ItemSlotsPerType)
-	{
-		for (int32 SlotNumber = 0; SlotNumber < Pair.Value; SlotNumber++)
-		{
-			SlottedItems.Add(FTDItemSlot(Pair.Key, SlotNumber), nullptr);
-		}
-	}
-
-	URPGSaveGame* CurrentSaveGame = GameInstance->GetCurrentSaveGame();
-	URPGAssetManager& AssetManager = URPGAssetManager::Get();
-	if (CurrentSaveGame)
-	{
-		// Copy from save game into controller data
-		bool bFoundAnySlots = false;
-		for (const TPair<FPrimaryAssetId, FTDItemData>& ItemPair : CurrentSaveGame->InventoryData)
-		{
-			UTDItem* LoadedItem = AssetManager.ForceLoadItem(ItemPair.Key);
-
-			if (LoadedItem != nullptr)
-			{
-				InventoryData.Add(LoadedItem, ItemPair.Value);
-			}
-		}
-
-		for (const TPair<FTDItemSlot, FPrimaryAssetId>& SlotPair : CurrentSaveGame->SlottedItems)
-		{
-			if (SlotPair.Value.IsValid())
-			{
-				UTDItem* LoadedItem = AssetManager.ForceLoadItem(SlotPair.Value);
-				if (GameInstance->IsValidItemSlot(SlotPair.Key) && LoadedItem)
-				{
-					SlottedItems.Add(SlotPair.Key, LoadedItem);
-					bFoundAnySlots = true;
-				}
-			}
-		}
-
-		if (!bFoundAnySlots)
-		{
-			// Auto slot items as no slots were saved
-			FillEmptySlots();
-		}
-
-		NotifyInventoryLoaded();
-
-		return true;
-	}
-
-	// Load failed but we reset inventory, so need to notify UI
-	NotifyInventoryLoaded();
-	*/
 	return false;
 }
 
