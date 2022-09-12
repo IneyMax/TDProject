@@ -3,7 +3,9 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "TDProjectTypes.h"
 #include "Components/ActorComponent.h"
+#include "ItemData/TDItem.h"
 #include "TDProject/TDProjectTypes.h"
 #include "TDInventoryComponent.generated.h"
 

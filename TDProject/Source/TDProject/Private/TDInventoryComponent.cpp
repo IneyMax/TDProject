@@ -17,7 +17,10 @@ UTDInventoryComponent::UTDInventoryComponent()
 // Called when the game starts
 void UTDInventoryComponent::BeginPlay()
 {
-	LoadInventory();
+	for (auto Slot : ItemSlots)
+	{
+		SetSlottedItem(Slot, nullptr);
+	}
 	
 	Super::BeginPlay();
 }

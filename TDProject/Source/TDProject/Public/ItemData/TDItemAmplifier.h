@@ -4,18 +4,18 @@
 
 #include "CoreMinimal.h"
 #include "TDItem.h"
-#include "Item/AAmplifier/TDAmplifierBase.h"
+#include "Item/AmplifierObjects/TDAmplifier.h"
 #include "TDItemAmplifier.generated.h"
 
 /**
  * 
  */
-UCLASS()
+UCLASS(BlueprintType, Blueprintable)
 class TDPROJECT_API UTDItemAmplifier : public UTDItem
 {
 	GENERATED_BODY()
 
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Amplifier)
-	TSubclassOf<ATDAmplifierBase> AmplifierClass;
+	TSubclassOf<UTDAmplifier> AmplifierClass;
 };
