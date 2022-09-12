@@ -22,4 +22,6 @@ class TDPROJECT_API IIItemInteract
 
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category=IItemInteract)
+	void ItemInteract(UObject* Item, int32 Count);
 };

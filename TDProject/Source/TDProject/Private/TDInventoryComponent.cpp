@@ -241,16 +241,6 @@ void UTDInventoryComponent::GetSlottedItems(TArray<UTDItem*>& Items, FPrimaryAss
 	}
 }
 
-void UTDInventoryComponent::GetSlottedItemsMap(TMap<FTDItemSlot, UTDItem*> &ItemsBySlot, FPrimaryAssetType ItemType)
-{
-	for (TPair<FTDItemSlot, UTDItem*>& Pair : SlottedItems)
-	{
-		if (Pair.Key.ItemType == ItemType || !ItemType.IsValid())
-		{
-			ItemsBySlot.Add(Pair);
-		}
-	}
-}
 
 void UTDInventoryComponent::FillEmptySlots()
 {

@@ -2,6 +2,7 @@
 
 
 #include "Item/Weapon/TDWeaponBase.h"
+#include "Item/AmplifierObjects/TDAmplifierBase.h"
 
 
 ATDWeaponBase::ATDWeaponBase()
@@ -13,7 +14,6 @@ ATDWeaponBase::ATDWeaponBase()
 void ATDWeaponBase::BeginPlay()
 {
 	Super::BeginPlay();
-	
 }
 
 // Called every frame

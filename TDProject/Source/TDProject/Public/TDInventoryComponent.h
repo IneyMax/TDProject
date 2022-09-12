@@ -70,7 +70,7 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, Category = Inventory)
 	void SlottedItemChanged(FTDItemSlot ItemSlot, UTDItem* Item);
 	
-	UFUNCTION(BlueprintCallable, Category = Inventory)
+	UFUNCTION(BlueprintPure, Category = Inventory)
 	const TArray<FTDItemSlot> GetItemSlots() const;
 	
 	/** Remove an inventory item, will also remove from slots. A remove count of <= 0 means to remove all copies */
@@ -78,11 +78,11 @@ public:
 	bool RemoveInventoryItem(int32 &NewCount, UTDItem* RemovedItem, int32 RemoveCount = 1);
 
 	/** Returns all inventory items of a given type. If none is passed as type it will return all */
-	UFUNCTION(BlueprintCallable, Category = Inventory)
+	UFUNCTION(BlueprintPure, Category = Inventory)
 	void GetInventoryItems(TArray<UTDItem*>& Items, FPrimaryAssetType ItemType);
 
 	/** Returns all unused inventory items of a given type. If none is passed as type it will return all */
-	UFUNCTION(BlueprintCallable, Category = Inventory)
+	UFUNCTION(BlueprintPure, Category = Inventory)
 	void GetUnusedInventoryItems(TArray<UTDItem*>& Items, FPrimaryAssetType ItemType);
 
 	/** Returns number of instances of this item found in the inventory. This uses count from GetItemData */
@@ -102,12 +102,8 @@ public:
 	UTDItem* GetSlottedItem(FTDItemSlot ItemSlot) const;
 
 	/** Returns all slotted items of a given type. If none is passed as type it will return all */
-	UFUNCTION(BlueprintCallable, Category = Inventory)
+	UFUNCTION(BlueprintPure, Category = Inventory)
 	void GetSlottedItems(TArray<UTDItem*>& Items, FPrimaryAssetType ItemType);
-
-	/** Returns all slotted items of a given type. If none is passed as type it will return all */
-	UFUNCTION(BlueprintCallable, Category = Inventory)
-	void GetSlottedItemsMap(TMap<FTDItemSlot, UTDItem*> &ItemsBySlot, FPrimaryAssetType ItemType);
 
 	/** Fills in any empty slots with items in inventory */
 	UFUNCTION(BlueprintCallable, Category = Inventory)
@@ -129,7 +125,4 @@ protected:
 	void NotifyInventoryItemChanged(bool bAdded, UTDItem* Item);
 	void NotifySlottedItemChanged(FTDItemSlot ItemSlot, UTDItem* Item);
 	void NotifyInventoryLoaded();
-
-	/** Called when a global save game as been loaded */
-	//void HandleSaveGameLoaded(URPGSaveGame* NewSaveGame);
 };
