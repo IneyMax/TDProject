@@ -216,35 +216,6 @@ bool UTDInventoryComponent::SetSlottedItem(FTDItemSlot ItemSlot, UTDItem* Item)
 	}
 	return false;
 }
-/*{
-	/*
-	// Iterate entire inventory because we need to remove from old slot
-	bool bFound = false;
-	for (TPair<FTDItemSlot, UTDItem*>& Pair : SlottedItems)
-	{
-		if (Pair.Key == ItemSlot)
-		{
-			// Add to new slot
-			bFound = true;
-			Pair.Value = Item;
-			NotifySlottedItemChanged(Pair.Key, Pair.Value);
-		}
-		else if (Item != nullptr && Pair.Value == Item)
-		{
-			// If this item was found in another slot, remove it
-			Pair.Value = nullptr;
-			NotifySlottedItemChanged(Pair.Key, Pair.Value);
-		}
-	}
-
-	if (bFound)
-	{
-		SaveInventory();
-		return true;
-	}
-
-	return false;
-}*/
 
 
 UTDItem* UTDInventoryComponent::GetSlottedItem(FTDItemSlot ItemSlot) const
